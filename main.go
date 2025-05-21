@@ -5,9 +5,9 @@ func main() {
 }
 
 func MaxInt(a, b int) int {
-    if a >= b {
-        return a
+    if b >= a {
+        return b
     }
 
-    return b
+    return a
 }
