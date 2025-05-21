@@ -1,9 +1,28 @@
 package main
 
-func MaxInt(a, b int) int {
-	if a >= b {
-		return a
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	var wg sync.WaitGroup
+	wg.Add(5)
+
+	for i := 0; i < 5; i++ {
+		go func() {
+			fmt.Println(i)
+			wg.Done()
+		}()
 	}
 
-	return b
+	wg.Wait()
+}
+
+func MaxInt(a, b int) int {
+	if b >= a {
+		return b
+	}
+
+	return a
 }
